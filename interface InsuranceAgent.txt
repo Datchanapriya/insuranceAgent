@@ -1,0 +1,39 @@
+interface InsuranceAgent {
+    double calculatePremium();
+    double calculateReturns();
+}
+
+class BankAgent implements InsuranceAgent {
+    String agentName;
+    double agentSalary;
+    double policyAmount;
+    double interestRate;
+
+    public double calculatePremium() {
+        return 0.1 * policyAmount;
+    }
+
+    public double calculateReturns() {
+        return policyAmount + (policyAmount * interestRate / 100);
+    }
+
+    public void displayInfo() {
+        System.out.println("Agent Name: " + agentName);
+        System.out.println("Agent Salary: " + agentSalary);
+        System.out.println("Premium: " + calculatePremium());
+        System.out.println("Returns: " + calculateReturns());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        
+        BankAgent agent = new BankAgent();
+        agent.agentName = "Ravi Kumar";
+        agent.agentSalary = 25000;
+        agent.policyAmount = 100000;
+        agent.interestRate = 5.0;
+
+        agent.displayInfo();
+    }
+}
